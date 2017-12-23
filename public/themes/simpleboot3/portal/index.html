@@ -1,0 +1,319 @@
+﻿<include file="public@head"/>    
+  </head>
+
+  <body id="page-top">
+    
+    <!-- Nav Section -->
+   <include file="public@nav"/>  
+    
+    
+    <!-- Full Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide carousel-fade header">
+    
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+        <foreach name="banners" item="vo" k="key">
+            <div class="item <eq name='key' value='0'>active</eq>">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url(upload/{$vo.pic});"></div>
+                <div class="carousel-caption">
+                    <img src="__TMPL__/public/assets/images/slide-wave.png" class="img-responsive" alt="Slide">
+                    <h2>{$company.title.content}</h2> 
+                    <h3>{$company.index.content}</h3>
+                    <a href="reservation.html" class="btn btn-white">预约</a>
+                </div>
+            </div>
+        </foreach>
+            
+        </div>
+        
+    </header>	
+    
+    
+    <!-- About Section -->
+    
+    <section id="about" class="about"><!-- Section id-->
+        <div class="container">
+            <div class="row">
+            	<div class="col-md-6 col-sm-12 left-side">
+                	<div class="section-title">
+                    	<h1>{$company.about.content}</h1>
+                        <img src="__TMPL__/public/assets/images/sep-1.png" alt="Underline" />
+                    </div>
+                    <div class="about-content">
+                    	<p class="text-uppercase fw-700">{$about.title}</p>
+                        <p>{$about.content}</p>
+                    </div>
+                    <div class="about-chef">
+                    	<h3>主厨</h3>
+                        <img src="__TMPL__/public/assets/images/avtar-about.png" class="img-responsive" alt="Jone Deo" />
+                        <p>{$company.pic_index_about1.content}"毕业于新东方学习<br>你值得品尝."</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 right-side">
+                	<div class="row about-img">
+                    	<div class="col-sm-6 col-xs-12">
+                        	<figure><img src="upload/{$company.pic_index_about1.content}" class="img-responsive" alt="Picture"></figure>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                        	<figure><img src="upload/{$company.pic_index_about2.content}" class="img-responsive" alt="Picture"></figure>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                        	<figure><img src="upload/{$company.pic_index_about3.content}" class="img-responsive" alt="Picture"></figure>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                        	<figure><img src="upload/{$company.pic_index_about4.content}" class="img-responsive" alt="Picture"></figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Our Menu Section -->
+    
+    <section id="ourmenu" class="ourmenu"><!-- Section id-->
+        <div class="container">
+            <div class="row">
+            	<div class="col-md-12">
+                	<div class="section-title">
+                    	<h1>我们的菜单</h1>
+                        <img src="__TMPL__/public/assets/images/sep-1.png" alt="Underline" />
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-4 col-xs-12">				
+                    <div class="hover ehover">
+                        <img class="img-responsive" src="__TMPL__/public/assets/images/food-1.jpg" alt="">
+                        <div class="overlay">
+                            <a href="ourmenu.html" class="info btn btn-gold">查看更多</a>
+                        </div>	
+                        <h3>披萨</h3>			
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">				
+                    <div class="hover ehover">
+                        <img class="img-responsive" src="__TMPL__/public/assets/images/food-2.jpg" alt="">
+                        <div class="overlay">
+                            <a href="ourmenu.html" class="info btn btn-gold">查看更多 </a>
+                        </div>	
+                        <h3>炒面</h3>			
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">				
+                    <div class="hover ehover">
+                        <img class="img-responsive" src="__TMPL__/public/assets/images/food-3.jpg" alt="">
+                        <div class="overlay">
+                            <a href="ourmenu.html" class="info btn btn-gold">查看更多</a>
+                        </div>	
+                        <h3>新东方 & 汉堡包 </h3>			
+                    </div>
+                </div>
+                
+                <div class="col-md-12 col-sm-12 col-xs-12 call-to-btn">
+                	<a href="ourmenu.html" class="btn btn-white">更多菜单</a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Meal of the Day Section -->
+    
+    <section id="mealoftheday" class="mealoftheday"><!-- Section id-->
+        <div class="container">
+            <div class="row">
+            	<div class="col-md-12">
+                	<div class="section-title">
+                    	<h1>今日推荐</h1>
+                        <img src="__TMPL__/public/assets/images/sep-1.png" alt="Underline" />
+                    </div>
+                </div>
+                
+                <div class="col-md-7 col-sm-6">
+                	<div class="meal-img">
+                    	<img src="__TMPL__/public/assets/images/Meal-of-the-Day.png" class="img-responsive" alt="meal of the day" />
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6">
+                	<div class="meal-details">
+                    	<h3>美丽基围虾</h3>
+                        <p>此道菜品是由我们的大厨，李大嘴亲自操刀做的，味道美极了~作为今日推荐，这道菜早已早早的被抢光了</p>
+                        <p class="fs-20 price">$12.75</p>
+                        <div class="row chaf-qut">
+                        	<div class="col-sm-3 col-xs-5">
+                            	<img src="__TMPL__/public/assets/images/avtar.png" class="img-circle img-responsive" alt="avtar" />
+                            </div>
+                            <div class="col-sm-9 col-xs-7">
+                            	<p>”开心快乐，每一天“.<br> 享受今天!’’</p>
+                            </div>
+                        </div>
+                    </div>	
+                </div>                                
+                
+            </div>
+        </div>
+    </section> 
+       
+
+    <!-- Book a Table Section -->
+    
+    <section id="bookatable" class="bookatable"><!-- Section id-->
+        <div class="container">
+            <div class="row">
+            	<div class="col-md-12">
+                	<div class="best-dish">
+                    	<h1>菜品</h1>
+                        <p class="big-text">最好的菜肴给你</p>
+                        <p>我们最开心的，就是看到客户对于我们的好评，每每看到客户开心，我们也就非常的开心，希望吧最好的东西都反馈给客户. </p>
+                        <div class="call-to-action">
+                            <a href="reservation.html" class="btn btn-gold">预定座位</a>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+	<!-- Testimonials Section -->
+    
+    <section id="testimonials" class="testimonials"><!-- Section id-->
+        <div class="container-fluid">
+            <div class="row">
+            	<div class="col-md-12">
+                	<div class="section-title">
+                    	<h1>褒奖</h1>
+                        <img src="__TMPL__/public/assets/images/sep-1.png" alt="Underline" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12">
+                    <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
+                      <!-- Carousel items -->
+                      <div class="container">
+                      <div class="carousel-inner">
+                        <div class="item">
+                            <div class="profile-circle"><img src="__TMPL__/public/assets/images/avatar-1.jpg" alt="avtar" /></div>
+                            <blockquote>
+                                <p class="fs-16">盘子装饰的特别美好，给我一种美好感，和食欲感，加上口味比较好，所以太喜欢这里了，我在这边还推荐了我的朋友们来，我们公司聚会都是在这里</p>
+                                <p class="person">张美丽</p>
+                                <p class="per-den"> 饿了吗CEO </p>
+                            </blockquote>
+                        </div>
+                        <div class="active item">
+                            <div class="profile-circle"><img src="__TMPL__/public/assets/images/avatar-2.jpg" alt="avtar" /></div>
+                            <blockquote>
+                                <p class="fs-16">盘子装饰的特别美好，给我一种美好感，和食欲感，加上口味比较好，所以太喜欢这里了，我在这边还推荐了我的朋友们来，我们公司聚会都是在这里</p>
+                                <p class="person">王美丽</p>
+                                <p class="per-den"> 饿了吗CEO </p>
+                            </blockquote>
+                        </div>
+                      </div>
+                      </div>
+                       <!-- Controls -->
+                          <a class="left carousel-control" href="#fade-quote-carousel" role="button" data-slide="prev">
+                            <span class="fa fa-long-arrow-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="right carousel-control" href="#fade-quote-carousel" role="button" data-slide="next">
+                            <span class="fa fa-long-arrow-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                      
+                    </div>
+                    </div>
+                </div>							
+            </div>
+    </section>
+    
+
+    <!-- Events Section -->
+    
+    <section id="events" class="events"><!-- Section id-->
+        <div class="container">
+            <div class="row">
+            	<div class="col-md-12">
+                	<div class="section-title">
+                    	<h1>最新推出</h1>
+                        <img src="__TMPL__/public/assets/images/sep-1.png" alt="Underline" />
+                    </div>
+                </div>                
+            </div>
+            
+            <div class="row event-block">
+            	<div class="col-md-4 col-sm-4">
+                	<div class="event-artical">
+                    	<img src="__TMPL__/public/assets/images/event-1.jpg" class="img-responsive" alt="Event" />
+                        <p class="event-date">10 - 12 - 2015</p>
+                        <h4 class="event-name fs-20">味蕾上的挑战</h4>
+                        <p class="event-details">尖椒的辣融合了芝士的甜，这味蕾上的挑战，不容你小觑.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                	<div class="event-artical">                    	
+                        <p class="event-date">10 - 12 - 2015</p>
+                        <h4 class="event-name fs-20">味蕾上的挑战</h4>
+                        <p class="event-details">尖椒的辣融合了芝士的甜，这味蕾上的挑战，不容你小觑.</p>
+                        <img src="__TMPL__/public/assets/images/event-2.jpg" class="img-responsive" alt="Event" />
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                	<div class="event-artical">
+                    	<img src="__TMPL__/public/assets/images/event-3.jpg" class="img-responsive" alt="Event" />
+                           <p class="event-date">10 - 12 - 2015</p>
+                        <h4 class="event-name fs-20">味蕾上的挑战</h4>
+                        <p class="event-details">尖椒的辣融合了芝士的甜，这味蕾上的挑战，不容你小觑.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+
+    <!-- Contact Section -->
+    
+    <section id="contactus" class="contactus"><!-- Section id-->
+        <div class="container">
+            <div class="row contect-out-bg">
+            	<!---<div class="col-md-6 col-sm-6">
+                	<div class="map">
+                    	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387145.8662688941!2d-74.2581880279189!3d40.70531105474914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1476860298090" height="450" ></iframe>
+                    </div>
+                </div>--->
+            	<div class="col-md-6 col-sm-6">
+                	<div class="section-title">
+                    	<h1>Contact</h1>
+                        <img src="__TMPL__/public/assets/images/sep-2.png" alt="sep">
+                    </div>
+                    
+                    <div class="contact-form row"><!-- contact form -->
+						<form class="" action="send_email.php" id="contact" name="contact" method="post" >
+                          <div class="form-group col-md-6">
+                            <input type="text" class="form-control" name="InputName" id="InputName" placeholder="您的名字" required >
+                          </div>
+                          <div class="form-group col-md-6">
+                            <input type="email" class="form-control" name="InputEmail" id="InputEmail" placeholder="您的邮箱" required >
+                          </div>
+                          <div class="form-group col-md-12">
+                            <textarea class="form-control" name="InputMessage" id="InputMessage" rows="4" placeholder="留言内容" required  ></textarea>
+                          </div>
+                          
+                          <button name="submit" type="submit" class="btn btn-white">发送信息</button>
+                        </form>
+                    </div>
+                    
+                </div>                
+            </div>            
+        </div>
+    </section>
+
+<include file="public@footer"/>  
+    
+  </body>
+</html>
+
