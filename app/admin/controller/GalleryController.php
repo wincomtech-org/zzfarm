@@ -89,7 +89,7 @@ class GalleryController extends AdminbaseController {
         }
         $data['pic0']= $data['pic'];
         $size=config('gallery_pic');
-        $data['pic']=zz_set_image($data['pic0'], $data['pic0'].'jpg', $size['width'], $size['height'], 6);
+        $data['pic']=zz_set_image($data['pic0'], $data['pic0'].'.jpg', $size['width'], $size['height'], 6);
         
         $data['time']=time();
         $row=$m->where('id', $data['id'])->update($data);
@@ -165,7 +165,7 @@ class GalleryController extends AdminbaseController {
         }
         $data['pic0']= $data['pic'];
         $size=config('gallery_pic');
-        $data['pic']=zz_set_image($data['pic0'], $data['pic0'].'jpg', $size['width'], $size['height'], 6);
+        $data['pic']=zz_set_image($data['pic0'], $data['pic0'].'.jpg', $size['width'], $size['height'], 6);
         
         $data['time']=time();
         $row=$m->insertGetId($data);
