@@ -81,7 +81,7 @@ class OurmenuController extends HomeBaseController
         if(empty($info['cname'])){
             $info['cname']='分类不存在';
         }
-        $list=Db::query('select gp.*,g.name,g.size,g.dsc from cmf_goods_pros as gp left join cmf_goods as g on g.id=gp.gid where gp.pid=?',[$id]);
+        $list=Db::query('select gp.*,g.name,g.dsc,g.unit,g.pack,g.much from cmf_goods_pros as gp left join cmf_goods as g on g.id=gp.gid where gp.pid=?',[$id]);
         zz_browse('goods',$id);
         $count=count($list);
         $i=ceil($count/2);

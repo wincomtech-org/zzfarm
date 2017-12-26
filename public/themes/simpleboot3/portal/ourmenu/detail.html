@@ -43,6 +43,10 @@
                     	<p class="item-title">口感</p>
                         <p>{$info.taste}</p>
                     </div>
+                    <div class="hot-deal-item">
+                    	<p class="item-title">包装大小</p>
+                        <p>{$info.much}{$info.unit}/{$info.pack}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -54,9 +58,10 @@
     <section id="menulist1" class="menulist"><!-- Section id-->
         <div class="container">
             <div class="row">
-            	<div class="detail">
-                   
-                   {$info.content}
+            	<div class="detail"> 
+                  <div class="detail_con"> 
+                       {$info.content}  
+                   </div>
                 </div>
             </div>
         </div>

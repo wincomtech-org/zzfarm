@@ -53,7 +53,7 @@
 					
 					<foreach name="list" item="vo">
 					<tr class="tr">
-						<td>{$vo.name}-{$vo.size}</td>
+						<td>{$vo.name}-{$vo.much}{$vo.unit}/{$vo.pack}</td>
 					 
 						<td class="num">{$vo.num}</td>
 						<td><span class="btn btn-default del">删除</span></td>
@@ -74,7 +74,7 @@
 				产品<select id="goods">
 					<option class="goods0" value="0">选择产品</option>
 				<foreach name="goods" item="vo"> 
-					<option class="goods{$vo.cid}" value="{$vo.id}" >{$vo.name}-{$vo.size}</option>
+					<option class="goods{$vo.cid}" value="{$vo.id}" >{$vo.name}-{$vo.much}{$vo.unit}/{$vo.pack}</option>
 				</foreach>
 				</select>
 				数量<input type="text" id="zznum" value="1" style="width:50px;"/>

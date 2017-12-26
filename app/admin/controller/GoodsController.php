@@ -29,6 +29,10 @@ class GoodsController extends AdminbaseController {
         $this->order='sort asc,time desc';
         $this->m=Db::name('goods');
         $this->assign('flag','产品');
+        $units=config('units');
+        $packs=config('packs');
+        $this->assign('units',$units);
+        $this->assign('packs',$packs);
        
     }
     
@@ -150,15 +154,32 @@ class GoodsController extends AdminbaseController {
      */
     function delete(){
         $m=$this->m;
-        $id=$this->request->param('id');
-       
-        $row=$m->where('id='.$id)->delete();
-        if($row===1){
-            $this->success('删除成功');
-        }else{
-            $this->error('删除失败');
+        $id=$this->request->param('id'); 
+        // 启动事务
+        Db::startTrans();
+        try{
+            $count=Db::name('goods_pros')->where('gid',$id)->count();
+            if($count>0){
+                throw \Exception();
+            }
+            Db::name('goods_pros')->where('pid',$id)->delete();
+            $row=$m->where('id='.$id)->delete();
+            if($row===1){
+                Db::commit(); 
+            }else{
+                throw \Exception(); 
+            }
+        }catch (\Exception $e) {
+            // 回滚事务
+            Db::rollback();
+            if($count>0){
+                $this->error('产品在套装内，不能删除');
+            }else{
+                $this->error('删除失败');
+            } 
         }
-       
+        $this->success('删除成功');
+        
     }
     
     /**
@@ -431,13 +452,13 @@ class GoodsController extends AdminbaseController {
         $id=$this->request->param('id');
          
         //已添加的套装产品
-        $list=Db::query('select gp.*,g.name,g.size from cmf_goods_pros as gp left join cmf_goods as g on g.id=gp.gid where gp.pid=?',[$id]);
+        $list=Db::query('select gp.*,g.name,g.unit,g.pack,g.much from cmf_goods_pros as gp left join cmf_goods as g on g.id=gp.gid where gp.pid=?',[$id]);
        //产品分类列表
         $cates=Db::name('cate')->where('type','goods')->order('sort asc')->select();
        //获取所有产品
         $m=$this->m;
         $info=$m->where('id',$id)->find();
-        $goods=$m->field('id,name,size,cid')->where('id','neq',$id)->order('cid asc')->select();
+        $goods=$m->field('id,name,cid,unit,pack,much')->where('id','neq',$id)->order('cid asc')->select();
         $this->assign('list',$list);
         $this->assign('cates',$cates);
         $this->assign('goods',$goods);

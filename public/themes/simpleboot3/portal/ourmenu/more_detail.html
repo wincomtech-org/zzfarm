@@ -43,6 +43,10 @@
                     	<p class="item-title">口感</p>
                         <p>{$info.taste}</p>
                     </div>
+                     <div class="hot-deal-item">
+                    	<p class="item-title">包装大小</p>
+                        <p>{$info.much}{$info.unit}/{$info.pack}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -77,11 +81,11 @@
                                     <h4><a href="{:url('detail',['id'=>$vo.gid])}">{$vo.name}</a></h4>
                                 </div>
                                 <div class="item-details row">
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-7">
                                         <p>{$vo.dsc}</p>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <p class="item-price">{$vo.num}*{$vo.size|default='袋'}</p>
+                                    <div class="col-sm-5">
+                                        <p class="item-price">{$vo.num}*{$vo.much}{$vo.unit}/{$vo.pack}</p>
                                     </div>
                                 </div>                                            
                             </div>
@@ -96,11 +100,11 @@
                                     <h4><a href="{:url('detail',['id'=>$vo.gid])}">{$vo.name}</a></h4>
                                 </div>
                                 <div class="item-details row">
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-7">
                                         <p>{$vo.dsc}</p>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <p class="item-price">{$vo.num}*{$vo.size|default='袋'}</p>
+                                    <div class="col-sm-5">
+                                        <p class="item-price">{$vo.num}*{$vo.much}{$vo.unit}/{$vo.pack}</p>
                                     </div>
                                 </div>                                            
                             </div>
@@ -122,7 +126,9 @@
         <div class="container">
             <div class="row">
                 <div class="detail"> 
-                       {$info.content} 
+                  <div class="detail_con"> 
+                       {$info.content}  
+                   </div>
                 </div>
             </div>
         </div>

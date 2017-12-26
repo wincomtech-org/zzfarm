@@ -84,16 +84,14 @@ class GalleryController extends AdminbaseController {
         if(empty($data['id'])){
             $this->error('数据错误');
         }
-        if(empty($data['pic'])){
+        if(empty($data['pic0'])){
             $this->error('图片上传错误');
         }
-        $info=$m->where('id', $data['id'])->find();
-        //如果图片没变就不压缩
-        if($info['pic']!=$data['pic']){
-            $data['pic0']= $data['pic'];
-            $size=config('gallery_pic');
-            $data['pic']=zz_set_image($data['pic0'], $data['pic0'].'.jpg', $size['width'], $size['height'], 6);
-        } 
+
+        $data['pic']= $data['pic0'].'.jpg';
+        $size=config('gallery_pic');
+        zz_set_image($data['pic0'], $data['pic'], $size['width'], $size['height'], 6);
+      
         $data['time']=time();
         $row=$m->where('id', $data['id'])->update($data);
         if($row===1){
@@ -163,14 +161,13 @@ class GalleryController extends AdminbaseController {
         
         $m=$this->m;
         $data= $this->request->param();
-        if(empty($data['pic'])){
+        if(empty($data['pic0'])){
             $this->error('图片上传错误');
         }
-        $data['pic0']= $data['pic'];
+        $data['pic']= $data['pic0'].'.jpg';
         $size=config('gallery_pic');
-        
-        $data['pic']=zz_set_image($data['pic0'], $data['pic0'].'.jpg', $size['width'], $size['height'], 6);
-        
+        zz_set_image($data['pic0'], $data['pic'], $size['width'], $size['height'], 6);
+         
         $data['time']=time();
         $row=$m->insertGetId($data);
         if($row>=1){
