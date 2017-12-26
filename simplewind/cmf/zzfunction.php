@@ -66,7 +66,7 @@ function zz_set_image($pic,$pic_new,$width,$height,$thump=6){
     if(is_file($imgSrc)){
         $image = \think\Image::open($imgSrc); 
         $size=$image->size(); 
-        if($size!=[$width,$height]){ 
+        if($size!=[$width,$height] || !is_file($imgSrc1)){ 
             $image->thumb($width, $height,$thump)->save($imgSrc1);
         } 
     }
