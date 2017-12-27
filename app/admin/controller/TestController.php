@@ -24,7 +24,7 @@ class TestController extends AdminbaseController {
      *     'parent' => '',
      *     'display'=> true,
      *     'hasView'=> true,
-     *     'order'  => 10,
+     *     'order'  => 100,
      *     'icon'   => '',
      *     'remark' => '测试',
      *     'param'  => ''
@@ -49,12 +49,12 @@ class TestController extends AdminbaseController {
      * )
      */
     function sql(){
-         $sql[]="ALTER TABLE `cmf_goods` ADD  `much` decimal(8,2) NOT NULL DEFAULT '100.00' COMMENT '包装分量'";
-         $sql[]="ALTER TABLE `cmf_goods` ADD `pack` varchar(10) NOT NULL DEFAULT '袋' COMMENT '包装类型'";
-         $sql[]="ALTER TABLE `cmf_goods` ADD  `unit` varchar(10) NOT NULL DEFAULT 'g' COMMENT '计量单位'";
-            foreach($sql as $v){
-             Db::execute($v);
-         }
+//          $sql[]="ALTER TABLE `cmf_goods` ADD  `much` decimal(8,2) NOT NULL DEFAULT '100.00' COMMENT '包装分量'";
+//          $sql[]="ALTER TABLE `cmf_goods` ADD `pack` varchar(10) NOT NULL DEFAULT '袋' COMMENT '包装类型'";
+//          $sql[]="ALTER TABLE `cmf_goods` ADD  `unit` varchar(10) NOT NULL DEFAULT 'g' COMMENT '计量单位'";
+//             foreach($sql as $v){
+//              Db::execute($v);
+//          }
          echo 'success';
     }
      
