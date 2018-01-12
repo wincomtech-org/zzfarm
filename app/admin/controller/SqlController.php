@@ -15,7 +15,7 @@ class SqlController extends AdminbaseController {
     public function _initialize() {
         parent::_initialize();
         $this->dir=getcwd().'/data/';
-        $this->line=PHP_EOL;
+        $this->line="\r\n";
         
     }
     
