@@ -6,10 +6,14 @@
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="{:url('index')}">数据备份列表</a></li>
 			<li><a href="{:url('add')}">新数据备份</a></li>
+			<li><a href="{:url('query')}">sql语句</a></li>
+			<li><a href="__ROOT__/zz.log">下载日志</a></li>
 		</ul>
-		<form method="post" class="js-ajax-form margin-top-20" action="">
+		<form method="post" class="js-ajax-form margin-top-20" action="{:url('dels')}">
 
-
+			<div class="table-actions">
+				<button type="submit" class="btn btn-primary btn-sm js-ajax-submit">删除</button>
+			</div>
 			<table class="table table-hover table-bordered table-list">
 				<thead>
 					<tr>
@@ -37,7 +41,7 @@
 							
 							<a href="/data/{$vo}">下载</a>
 							&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a
-							class="js-ajax-dialog-btn" href="{:url('del',array('id'=>$vo))}"
+							class="js-ajax-delete" href="{:url('del',array('id'=>$vo))}"
 							data-msg="确认删除吗？">删除</a></td>
 
 					</tr>
