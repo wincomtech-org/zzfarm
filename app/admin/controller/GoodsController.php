@@ -129,7 +129,7 @@ class GoodsController extends AdminbaseController {
         $data['pic']=zz_set_image($data['pic'], $data['pic'], $size['width'], $size['height'], 6);
        
         $data['time']=time();
-         
+        $data['keywords']=empty($data['keywords'])?$data['name']:$data['keywords'];
         $data['content']=empty($_POST['content'])?'':$_POST['content'];
         $row=$m->where('id', $data['id'])->update($data);
         if($row===1){
@@ -229,6 +229,7 @@ class GoodsController extends AdminbaseController {
         
         $data['time']=time();
         $data['insert_time']=time();
+        $data['keywords']=empty($data['keywords'])?$data['name']:$data['keywords'];
         $data['content']=empty($_POST['content'])?'':$_POST['content'];
         $row=$m->insertGetId($data);
         if($row>=1){

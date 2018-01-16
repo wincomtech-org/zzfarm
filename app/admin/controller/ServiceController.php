@@ -15,7 +15,7 @@ class ServiceController extends AdminbaseController {
     public function _initialize()
     {
         parent::_initialize(); 
-        $this->order='sort asc,id asc';
+        $this->order='sort asc,id desc';
         $this->m=Db::name('service');
         $cates=Db::name('cate')->order('sort asc,id asc')->where('type','service')->select();
         $tmp=[];

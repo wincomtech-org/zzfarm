@@ -14,7 +14,7 @@ use app\admin\model\RouteModel;
 use cmf\controller\AdminBaseController;
 
 use think\Db;
-
+use Memcache;
 /**
  * Class SettingController
  * @package app\admin\controller
@@ -246,6 +246,14 @@ class SettingController extends AdminBaseController
     public function clearCache()
     {
         cmf_clear_cache();
+       
+        //增加清除memcache
+        $mem_config=config('memcache');
+        $mem=new Memcache();
+        $mem->connect($mem_config['host'],$mem_config['port']);
+        $co=$mem->delete('company');
+        $ca=$mem->delete('cates');
+        
         return $this->fetch();
     }
 

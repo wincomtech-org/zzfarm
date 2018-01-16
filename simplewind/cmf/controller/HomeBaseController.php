@@ -13,25 +13,48 @@ namespace cmf\controller;
 use think\Db;
 use app\admin\model\ThemeModel;
 use think\View;
+use Memcache;
 
 class HomeBaseController extends BaseController
 {
-
+    
     public function _initialize()
     {
         // 监听home_init
         hook('home_init');
         parent::_initialize();
-       
+       $mem_config=config('memcache');
+       $mem=new Memcache();
+         
+       $mem->connect($mem_config['host'],$mem_config['port']);
+     
+       if(empty($mem->get('company'))){
+           //获取网站信息
+           $company=DB::name('company')->select();
+           $com=[];
+           foreach($company as $k=>$v){
+               $com[$v['name']]=$v;
+           }
+           $mem->set('company', $com);
+           //获取分类信息
+           $cate=DB::name('cate')->order('type asc,sort asc,id asc')->select();
+           $cates=[];
+           foreach($cate as $k=>$v){
+               $cates[$v['type']][]=$v;
+           }
+           $mem->set('cates', $cates);
+       } 
+       $com=$mem->get('company');
+       $cates=$mem->get('cates');
+       //session暂不使用，使用memcache保存数据
         //通过在线时间更新session
-       $online_time=session('online_time');
+        $online_time=session('online_time');
        $time=time();
-       if(empty($online_time0) || ($time-$online_time)>3600){
-           session('company',null);
+       if(empty($online_time) || ($time-$online_time)>3600){ 
            session('online_time',$time);
-           session('goods',null);
-           session('links',null);
+           session('goods',null); 
        }
+       /*
        //网站通用信息保存在session中
         $com=session('company');
         $cates=session('cates');
@@ -53,7 +76,7 @@ class HomeBaseController extends BaseController
             session('cates', $cates);
               
             
-        } 
+        }  */
         View::share('company',$com); 
         View::share('cates',$cates); 
        

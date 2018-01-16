@@ -4,17 +4,22 @@ namespace app\portal\controller;
 
 use cmf\controller\HomeBaseController;
 use think\Db;
+use Memcache;
 class OurmenuController extends HomeBaseController
 {
     private $m;
+    private $cates_goods;
      public function _initialize()
     {
         
         parent::_initialize();
         $this->assign('html_flag','ourmenu');
         $this->m=DB::name('goods');
-        
-       
+        $mem_config=config('memcache');
+        $mem=new Memcache();
+        $mem->connect($mem_config['host'],$mem_config['port']);
+        $cates=$mem->get('cates');
+        $this->cates_goods=$cates['goods'];
     } 
     public function index()
     {
@@ -48,7 +53,7 @@ class OurmenuController extends HomeBaseController
         if($info['cid']==config('pros')){
             $this->redirect(url('more_detail',['id'=>$id]));
         }
-        foreach(session('cates.goods') as $k=>$v){
+        foreach(($this->cates_goods) as $k=>$v){
             if($v['id']==$info['cid']){
                 $info['cname']=$v['name'];
                 break;
@@ -58,7 +63,7 @@ class OurmenuController extends HomeBaseController
             $info['cname']='分类不存在';
          }
           zz_browse('goods',$id);
-        $this->assign('info',$info);
+        $this->assign('info',$info); 
         return $this->fetch();
     }
      
@@ -72,7 +77,7 @@ class OurmenuController extends HomeBaseController
             $this->redirect(url('portal/index/index'));
         }
         
-        foreach(session('cates.goods') as $k=>$v){
+        foreach(($this->cates_goods) as $k=>$v){
             if($v['id']==$info['cid']){
                 $info['cname']=$v['name'];
                 break;

@@ -116,6 +116,13 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="col-sm-2 control-label">关键字</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" name="keywords" value="{$info.keywords}" >
+					<span>不同关键字请用英文逗号隔开</span>
+				</div>
+			</div>
+			<div class="form-group">
 				<label class="col-sm-2 control-label">详情 </label>
 				<div class="col-md-6 col-sm-10">
 					<script type="text/plain" id="content" name="content">{$info.content}</script>
@@ -123,7 +130,8 @@
 			</div>
 
 			<div class="form-group" id="zzsize">
-				<label class="col-sm-2 control-label">包装大小</label>
+				<label class="col-sm-2 control-label">包装大小<span
+					class="form-required">*</span></label>
 				<div class="col-md-6 col-sm-10">
 				<input type="number" class="form-control" name="much" value="{$info.much}"  required>
 				<select name="unit" id="">

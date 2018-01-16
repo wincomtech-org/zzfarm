@@ -13,8 +13,7 @@ class NewsController extends HomeBaseController
         parent::_initialize();
         $this->assign('html_flag','news');
         $this->m=DB::name('news');
-        
-       
+         
     } 
     public function index()
     { 
