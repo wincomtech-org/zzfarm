@@ -31,9 +31,9 @@ class TestController extends AdminbaseController {
      * )
      */
     function test(){
-         $mem= new Memcache;
-//增加了一个域名的缓存
-        $mem->addServer('hcfarm.wincomtech.cn', 11211);
+//          $mem= new Memcache;
+// //增加了一个域名的缓存
+//         $mem->addServer('hcfarm.wincomtech.cn', 11211);
         return $this->fetch();
     }
     
