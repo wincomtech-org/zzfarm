@@ -5,7 +5,7 @@ namespace app\admin\controller;
 
 use cmf\controller\AdminBaseController;
 use think\Db;
-
+use Memcache;
 
 class TestController extends AdminbaseController {
     
@@ -31,7 +31,9 @@ class TestController extends AdminbaseController {
      * )
      */
     function test(){
-         
+         $mem= new Memcache;
+//增加了一个域名的缓存
+        $mem->addServer('hcfarm.wincomtech.cn', 11211);
         return $this->fetch();
     }
     
