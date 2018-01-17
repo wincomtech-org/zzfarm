@@ -4,15 +4,22 @@ namespace app\portal\controller;
 
 use cmf\controller\HomeBaseController;
 use think\Db;
+use Memcache;
 class NewsController extends HomeBaseController
 {
     private $m;
+    private $cates;
      public function _initialize()
     {
         
         parent::_initialize();
         $this->assign('html_flag','news');
         $this->m=DB::name('news');
+        $mem_config=config('memcache');
+        $mem=new Memcache();
+        $mem->connect($mem_config['host'],$mem_config['port']);
+        $cates=$mem->get('cates');
+        $this->cates=$cates['news'];
          
     } 
     public function index()
@@ -48,7 +55,7 @@ class NewsController extends HomeBaseController
         if(empty($info)){ 
             $this->redirect(url('portal/index/index')); 
         }
-        foreach(session('cates.news') as $k=>$v){
+        foreach(($this->cates) as $k=>$v){
             if($v['id']==$info['cid']){
                 $info['cname']=$v['name'];
                 break;

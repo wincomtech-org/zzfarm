@@ -8,7 +8,7 @@ use Memcache;
 class OurmenuController extends HomeBaseController
 {
     private $m;
-    private $cates_goods;
+    private $cates;
      public function _initialize()
     {
         
@@ -19,7 +19,7 @@ class OurmenuController extends HomeBaseController
         $mem=new Memcache();
         $mem->connect($mem_config['host'],$mem_config['port']);
         $cates=$mem->get('cates');
-        $this->cates_goods=$cates['goods'];
+        $this->cates=$cates['goods'];
     } 
     public function index()
     {
@@ -53,7 +53,7 @@ class OurmenuController extends HomeBaseController
         if($info['cid']==config('pros')){
             $this->redirect(url('more_detail',['id'=>$id]));
         }
-        foreach(($this->cates_goods) as $k=>$v){
+        foreach(($this->cates) as $k=>$v){
             if($v['id']==$info['cid']){
                 $info['cname']=$v['name'];
                 break;

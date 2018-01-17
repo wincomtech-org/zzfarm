@@ -4,6 +4,7 @@ namespace app\portal\controller;
 
 use cmf\controller\HomeBaseController;
 use think\Db;
+use Memcache;
 class ServiceController extends HomeBaseController
 {
      public function _initialize()
@@ -11,7 +12,11 @@ class ServiceController extends HomeBaseController
         
         parent::_initialize();
         $this->assign('html_flag','service');
-        
+        $mem_config=config('memcache');
+        $mem=new Memcache();
+        $mem->connect($mem_config['host'],$mem_config['port']);
+        $cates=$mem->get('cates');
+        $this->cates=$cates['service'];
        
     } 
     public function index()
@@ -47,7 +52,7 @@ class ServiceController extends HomeBaseController
         if(empty($info)){ 
             $this->redirect(url('portal/index/index')); 
         }
-        foreach(session('cates.service') as $k=>$v){
+        foreach(($this->cates) as $k=>$v){
             if($v['id']==$info['cid']){
                 $info['cname']=$v['name'];
                 break;
