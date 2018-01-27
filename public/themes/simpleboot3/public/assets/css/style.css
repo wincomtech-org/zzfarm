@@ -128,12 +128,7 @@ aside {
  font-family: 'hanxiu';
  src: url('../vendor/font-awesome/fonts/hanxiu.TTF');
 }  
-
-@font-face {
- font-family: 'kaiti';
- src: url('../vendor/font-awesome/fonts/TTXINGKAIJ.TTF');
-}
-
+ 
  
 .glyphicon {
   position: relative;
