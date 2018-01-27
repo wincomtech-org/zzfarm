@@ -22,7 +22,7 @@
                 <div class="col-md-1 col-sm-12 col-md-pull-1 center-side">
                 	<div class="best-price">
                     	<p class="tex">价格</p>
-                        <p class="amount">￥{$info.price}</p>
+                         <p class="amount"><eq name="info.price" value="0">详谈<else/>￥{$info.price}</eq></p>
                     </div>
                 </div>
             	<div class="col-md-5 col-sm-12 right-side">

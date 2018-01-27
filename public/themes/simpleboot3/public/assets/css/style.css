@@ -1255,6 +1255,7 @@ figure {
 		font-family: 'Alegreya', serif;
 		font-size:2.457142857142857em;
 		margin-bottom: 0px;
+		margin-top: 7px;
     	line-height: 1;
 	}
 	
@@ -1612,6 +1613,7 @@ body{
 #mainNav.navbar-default .nav > li > a, #mainNav.navbar-default .nav > li > a:focus {
     text-align: center;
     padding:10px;
+	font-size:14px;
 }
 .dropdown-menu li a{
   text-align:center;
@@ -1700,7 +1702,8 @@ body{
     width: auto;
 }
 .navbar-default .nav > li > a, .navbar-default .nav > li > a:focus {
-    color: #fff;
+    color: #222;
+	
 }
 .navbar-default.affix .nav > li > a, .navbar-default.affix .nav > li > a:focus {
     color: #222222;
