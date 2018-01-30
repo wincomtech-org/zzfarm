@@ -54,9 +54,9 @@
 							<a href='{:url("user/edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a>
 							<a class="js-ajax-delete" href="{:url('user/delete',array('id'=>$vo['id']))}">{:lang('DELETE')}</a>
 							<if condition="$vo['user_status'] eq 1">
-								<a href="{:url('user/ban',array('id'=>$vo['id']))}" class="js-ajax-dialog-btn" data-msg="{:lang('BLOCK_USER_CONFIRM_MESSAGE')}">{:lang('BLOCK_USER')}</a>
+								<a href="{:url('user/ban',array('id'=>$vo['id']))}" class="js-ajax-delete" data-msg="{:lang('BLOCK_USER_CONFIRM_MESSAGE')}">{:lang('BLOCK_USER')}</a>
 							<else />
-								<a href="{:url('user/cancelban',array('id'=>$vo['id']))}" class="js-ajax-dialog-btn" data-msg="{:lang('ACTIVATE_USER_CONFIRM_MESSAGE')}">{:lang('ACTIVATE_USER')}</a>
+								<a href="{:url('user/cancelban',array('id'=>$vo['id']))}" class="js-ajax-delete" data-msg="{:lang('ACTIVATE_USER_CONFIRM_MESSAGE')}">{:lang('ACTIVATE_USER')}</a>
 							</if>
 						</if>
 					</td>
